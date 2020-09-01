@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <section class="continer">
+            <div class="left">
+                <img  id="im" src="green.png" alt="">
+                <p id="logo">Nike</p>
+            </div>
+            <div class="right">
+                <div class="top">
+                    <h2 class="name">Nike Air Max 270</h2>
+                <span id="new">new</span>
+                </div>
+                
+                <p>Refresh your step in the Nike Air Max 270 React SE. 
+                    It features fresh colours and super-breathable no-sew materials on the upper.
+                     Nike Air underfoot adds spring to your step while transparent details let your sock game shine.</p>
+                <div class="size">
+                  <h1>Size:</h1>
+                  
+                  <span>7</span>
+                  <span>8</span>
+                  <span>9</span>
+                  <span>10</span>
+                </div>
+                <div class="colors">
+                  <h1>Colors:</h1>
+                  <span class="red"  onclick="change(this.className)"></span>
+                  <span class="blue" onclick="change(this.className)"></span>
+                  <span class="green"  onclick="change(this.className)"></span>
+                  <span class="black"  onclick="change(this.className)"></span>
+                </div>
+                <div class="get">
+                  <div id="buy" onmouseover="buy()" onmouseout="unbuy()">
+                    <p id="last" class="last">Add to cart</p>
+                    <!-- <input type="button" id="last" value="Add to cart" style="color: black;"></input> -->
+                  </div>
+                  <p id="price" class="price"> <del>$100</del> $99 /-</p>
+                </div>
+            </div> 
+    </section>
+    <script>
+        function change(sp,color)
+        {
+          
+          var image=document.getElementById("im")
+          
+          image.src=sp+".png"
+          image.style.transitionDelay="0.2s"
+          var back=document.getElementById("back")
+          
+          var buy=document.getElementById("buy")
+          buy.style.backgroundColor=sp
+          image.style.transition="0.5s"
+          var back=document.getElementById("new")
+          var logo=document.getElementById("logo")
+            if(sp=="red"){
+            back.style.backgroundColor="#ee2828"
+            back.style.color="white"
+            logo.style.backgroundColor="#ee2828"
+            document.getElementById("price").innerHTML="$100 /-"
+            }
+            else if(sp=="green"){
+            back.style.backgroundColor="rgb(78, 212, 145)"
+            back.style.color="white"
+            logo.style.backgroundColor="rgb(78, 212, 145)"
+            document.getElementById("price").innerHTML=" <del>$100</del> $99 /-"
+            }
+            else if(sp=="black")
+            {
+                back.style.backgroundColor=sp
+                back.style.color="white"
+                logo.style.backgroundColor=sp
+                logo.style.color="rgba(255,255,255,0.5)"
+                document.getElementById("price").innerHTML="<del>$100</del> $99 /-"
+            }
+            else{
+            back.style.backgroundColor="#4c49e7"
+            back.style.color="white"
+            logo.style.backgroundColor="#4c49e7"
+            document.getElementById("price").innerHTML="<del>$100</del> $99 /-"
+            
+            }
+        }
+        function buy(){
+          document.getElementById("last").innerHTML="<i class='fa fa-shopping-cart' aria-hidden='true'></i> Add to cart"
+        }
+        function unbuy(){
+          document.getElementById("last").innerHTML="Add to cart"
+        }
+      </script>
+</body>
+</html>
